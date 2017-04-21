@@ -137,7 +137,8 @@ public class WeatherActivity extends AppCompatActivity {
      * 根据天气id请求城市天气信息。
      */
     public void requestWeather(final String weatherId) {
-        String weatherUrl = "https://free-api.heweather.com/x3/weather?cityid=" + weatherId + "&key=4db148ee950f4006a973c5c8c9e0b135";
+//        String weatherUrl = "https://free-api.heweather.com/x3/weather?cityid=" + weatherId + "&key=4db148ee950f4006a973c5c8c9e0b135";
+        String weatherUrl = "https://free-api.heweather.com/v5/weather?city=" + weatherId + "&key=4db148ee950f4006a973c5c8c9e0b135";
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
@@ -237,6 +238,7 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+
         Intent intent = new Intent(this, AutoUpdateService.class);
         startService(intent);
     }

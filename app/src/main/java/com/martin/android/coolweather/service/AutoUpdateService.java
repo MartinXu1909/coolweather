@@ -50,7 +50,8 @@ public class AutoUpdateService extends Service {
             // 有缓存时直接解析天气数据
             Weather weather = Utility.handleWeatherResponse(weatherString);
             String weatherId = weather.basic.weatherId;
-            String weatherUrl = "https://api.heweather.com/x3/weather?cityid=" + weatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
+//            String weatherUrl = "https://free-api.heweather.com/x3/weather?cityid=" + weatherId + "&key=4db148ee950f4006a973c5c8c9e0b135";
+            String weatherUrl = "https://free-api.heweather.com/v5/weather?city=" + weatherId + "&key=4db148ee950f4006a973c5c8c9e0b135";
             HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
